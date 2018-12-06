@@ -1,0 +1,125 @@
+<?xml version="1.0"?>  
+<!-- '#' means the variable which is defined in code not in XML -->
+<!-- '%' means the var should be implement in code not in XML -->
+<!-- '$' means the var has been defined in XML -->
+
+<GrammarTree version="0.2">
+<root child="2">
+    <functionCall child="1">
+        <functionLib header="math.h" child="19">
+            <function type="function">
+                #double-$operator_eql-%pow-%(-#double-%,-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%sinh-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%sqrt-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%tan-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%tanh-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%atan-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%acos-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%asin-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%atan2-%(-#double-%,-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%fmod-%(-#double-%,-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%ldexp-%(-#double-%,-#int-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%ceil-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%cos-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%cosh-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%fabs-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%floor-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%exp-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%log-%(-#double-%)
+            </function>
+            <function type="function">
+                #double-$operator_eql-%log10-%(-#double-%)
+            </function>
+        </functionLib>
+    </functionCall>
+	<expression child="2">
+		<castExpression child="4">
+			<castExpressionAdd type="expression">
+				#lvar-$operator_eql-#lvar-$operator_add-#rvar
+			</castExpressionAdd>
+			<castExpressionMin type="expression">
+				#lvar-$operator_eql-#lvar-$operator_min-#rvar
+			</castExpressionMin>
+			<castExpressionMul type="expression">
+				#lvar-$operator_eql-#lvar-$operator_mul-#rvar
+			</castExpressionMul>
+			<castExpressionDiv type="expression">
+				#lvar-$operator_eql-#lvar-$operator_div-#rvar
+			</castExpressionDiv>
+		</castExpression>
+		<assignExpression child="2">
+			<assignExpressionVar type="expression">
+				#lvar-$operator_eql-#rvar
+			</assignExpressionVar>
+			<assignExpressionVal type="expression">
+				#lvar-$operator_eql-#rvalue
+			</assignExpressionVal>
+		</assignExpression>
+	</expression>
+	
+</root>
+
+<conditionExpression child="1">
+	<compareExpression child="2">
+		<largeThen type="condition">
+			#lvar-$operator_lar-#rvar
+		</largeThen>
+		<smallerThen type="condition">
+			#lvar-$operator_sml-#rvar
+		</smallerThen>
+	</compareExpression>
+</conditionExpression>
+
+<operator>
+	<operator_eql>
+		=
+	</operator_eql>
+	<operator_add>
+		+
+	</operator_add>
+	<operator_min>
+		-
+	</operator_min>
+	<operator_mul>
+		*
+	</operator_mul>
+	<operator_div>
+		/
+	</operator_div>
+</operator>
+
+</GrammarTree>
