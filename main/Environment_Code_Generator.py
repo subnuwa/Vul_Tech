@@ -147,6 +147,7 @@ class CodeGenerator:
     def insertCodeToCFV(self,node):
         i = 0
         self.cfv = node["cfv"]
+        print(self.cfv)
         while i<len(self.cfv):
             # it starts with a digit
             #if cfv[i][0].isdigit():

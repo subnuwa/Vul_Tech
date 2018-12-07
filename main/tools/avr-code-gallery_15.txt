@@ -1,33 +1,12 @@
 ===================== vulnerability track  =============================
 
 The function name:  main
-   if( strcmp( controller4vul_1, "t") > 0)
-   if( strcmp( controller4vul_2, "W/yU") > 0)
-   call cmd_ls
+   if( strcmp( controller4vul_1, "1YoKW") < 0)
+   call lcd_gotoxy
 
-The function name:  cmd_ls
-   if( strcmp( controller4vul_3, "@S=") > 0)
-   if( strcmp( controller4vul_4, "FN]") < 0)
-   call bmfs_open_dir
-
-The function name:  bmfs_open_dir
-   if( strcmp( controller4vul_5, "r?G") < 0)
-   call open_dir
-
-The function name:  open_dir
-   if( strcmp( controller4vul_6, ")^4N=") > 0)
-   if( strcmp( controller4vul_7, "&m") < 0)
-   call find_entry
-
-The function name:  find_entry
-   if( strcmp( controller4vul_8, "g,") == 0)
-   call bmfs_entry_read
-
-The function name:  bmfs_entry_read
-   if( strcmp( controller4vul_9, "HA1[") < 0)
-   call bmfs_disk_tell
-
-The function name:  bmfs_disk_tell
+The function name:  lcd_gotoxy
+   if( strcmp( controller4vul_2, "`gzV}") < 0)
+   if( strcmp( controller4vul_3, "*{U") > 0)
    Vulnerability
 
 
@@ -35,16 +14,16 @@ The function name:  bmfs_disk_tell
 
 ================= ulit parameters ======================
 
-unique_magic_number = 776
+unique_magic_number = 307
 vulnerability_name = CWE-761
 
 ================= ulit parameters ends ======================
 
 ================= dataflow parameters ======================
 
-dataflow_parameter_input_number = 10
+dataflow_parameter_input_number = 3
 
-dataflow_parameter_magic_number = 0.1
+dataflow_parameter_magic_number = 0
 dataflow_parameter_magic_number_length_min = 1
 dataflow_parameter_magic_number_length_max = 5
 
@@ -56,14 +35,14 @@ dataflow_parameter_checksum = 0
 
 ================= environment parameters ======================
 
-environment_parameter_branches = 100
+environment_parameter_branches = 3
 
 environment_parameter_loop_times_min = 1
 environment_parameter_loop_times_max = 10
 
 environment_parameter_magic_number_length_min = 1
 environment_parameter_magic_number_length_max = 5
-environment_parameter_magic_number = 1
+environment_parameter_magic_number = 0
 
 environment_parameter_checksum_type = 1
 environment_parameter_checksum_div = 100

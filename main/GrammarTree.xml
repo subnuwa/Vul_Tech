@@ -67,19 +67,13 @@
         </functionLib>
     </functionCall>
 	<expression child="2">
-		<castExpression child="4">
+		<castExpression child="2">
 			<castExpressionAdd type="expression">
 				#lvar-$operator_eql-#lvar-$operator_add-#rvar
 			</castExpressionAdd>
-			<castExpressionMin type="expression">
-				#lvar-$operator_eql-#lvar-$operator_min-#rvar
-			</castExpressionMin>
 			<castExpressionMul type="expression">
 				#lvar-$operator_eql-#lvar-$operator_mul-#rvar
 			</castExpressionMul>
-			<castExpressionDiv type="expression">
-				#lvar-$operator_eql-#lvar-$operator_div-#rvar
-			</castExpressionDiv>
 		</castExpression>
 		<assignExpression child="2">
 			<assignExpressionVar type="expression">

@@ -140,7 +140,12 @@ def locateController(cfv):
                 #if record[-1] in ifWords:
                 position.pop()
                 record.pop()
-        if cfv[i].startswith("#") or "Vul" in cfv[i]:
+                
+        if "uni_para" in cfv[i]:
+            record.append(cfv[i])
+            position.append(i)
+            
+        if cfv[i].startswith("#") or "Vul/KeyStatement" == cfv[i]:
             break
     return position
 
@@ -169,7 +174,9 @@ def chooseController():
 def insertController(cfv,controllerLocation,length_min,length_max,magic_number_list,checksum_type,checksum_div):
     temp = 0
     length = len(magic_number_list)
+    #print(magic_number_list)
     magic_number_temp = 0
+    #print(controllerLocation)
     for location in controllerLocation:
         # if branch 
         if cfv["cfv"][location+temp] in ifWords:
