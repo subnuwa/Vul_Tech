@@ -185,7 +185,8 @@ def insertController(cfv,controllerLocation,length_min,length_max,magic_number_l
             definition = "char "+var+"["+str(length)+"];"
             cfv["cfv"].insert(location+temp,definition)
             temp+=1
-            cfv["cfv"].insert(location+temp,'scanf("%'+str(length)+'s", '+var+");")
+            cfv["cfv"].insert(location+temp,"fgets("+str(var)+" ,"+str(length+1)+" ,stdin);")
+            #cfv["cfv"].insert(location+temp,'scanf("%'+str(length)+'s", '+var+");")
             temp+=1
             if magic_number_list[magic_number_temp] == 0: # normal controller
                 operator = randomlyPickOperator()

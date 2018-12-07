@@ -123,10 +123,11 @@ class StatementInserter:
                     statement = "if(1)"
                 else:
                     #print(var)
-                    definition = "char "+var+"["+str(length)+"];"
+                    definition = "char "+var+"["+str(length+1)+"];"
                     self.cfv.insert(index+temp,definition)
                     temp+=1
-                    self.cfv.insert(index+temp,'scanf("%'+str(length)+'s", '+str(var)+");")
+                    self.cfv.insert(index+temp,"fgets("+str(var)+" ,"+str(length+1)+" ,stdin);")
+                    #self.cfv.insert(index+temp,'scanf("%'+str(length+1)+'s", '+str(var)+");")
                     temp+=1
                     if self.magic_number_list[magic_index] == 1:  # normal input controller
                         operator = self.randomlyPickOperator()
