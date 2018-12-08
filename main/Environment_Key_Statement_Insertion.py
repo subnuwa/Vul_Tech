@@ -11,10 +11,9 @@ import copy
 
 class StatementInserter:
     
-    def __init__(self,node,loop_times_min,loop_times_max,magic_number_list,magic_number_length_min,magic_number_length_max,checksum_type,checksum_div,func_flag):
+    def __init__(self,node,loop_time,magic_number_list,magic_number_length_min,magic_number_length_max,checksum_type,checksum_div,func_flag):
         
-        self.loop_times_min = loop_times_min
-        self.loop_times_max = loop_times_max
+        self.loop_time = loop_time
         
         self.magic_number_length_min = magic_number_length_min
         self.magic_number_length_max = magic_number_length_max
@@ -86,7 +85,7 @@ class StatementInserter:
         for index in self.keyWordLocation:
             #  " FOR "
             if self.cfv[index+temp].startswith("for"):
-                loop = random.randint(self.loop_times_min,self.loop_times_max)
+                loop = self.loop_time
                 if '/' in self.cfv[index]:
                     loop = int(self.cfv[index].split("/")[1])
                 var_looper = self.chooseLooper()
@@ -96,7 +95,7 @@ class StatementInserter:
             
             #  " WHILE "
             if self.cfv[index+temp].startswith("while"):
-                loop = loop = random.randint(self.loop_times_min,self.loop_times_max)
+                loop = self.loop_time
                 if '/' in self.cfv[index]:
                     loop = int(self.cfv[index].split("/")[1])
                 var_looper = self.chooseLooper()
