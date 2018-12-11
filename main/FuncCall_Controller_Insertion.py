@@ -189,7 +189,7 @@ def randomlyPickASCII(length):
     string = ""
     for i in range(0,length):
         char = chr(random.randint(32,126))
-        while char in ['"',"\\","'"]:   # delete the special ascii which has special meaning in C language
+        while char in ['"',"\\","'","%"]:   # delete the special ascii which has special meaning in C language
             char = chr(random.randint(32,126))
         string+= char
     return string

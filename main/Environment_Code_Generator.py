@@ -509,7 +509,7 @@ class CodeGenerator:
                 varType = var.split("_")[0]
                 if varType == "unsigned":  # if the type is 'unsigned', change it to 'unsigned int'
                     varType = "unsigned int"
-                statement = varType+" "+var+" = 0"
+                statement = varType+" "+var+" = 1"
                 assignList.append(statement)
             cfv.insert(index+temp+1,assignList)
             temp+=1

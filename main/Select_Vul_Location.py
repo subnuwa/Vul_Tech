@@ -90,7 +90,7 @@ class Select_Vul_Location:
     def allocateMagicNumber(self):
         weight = [0]*len(self.selected_path)
         stack = copy.copy(self.selected_weight)
-        rest = int(math.ceil(sum(self.selected_weight)*self.magic_number))   # rest is used to record the random times
+        rest = self.magic_number   # rest is used to record the random times
         
         while rest!=0:
             index = random.randint(0,len(self.selected_path)-1)         # randomly pick a if block in the if_list 
@@ -104,7 +104,7 @@ class Select_Vul_Location:
     def allocateChecksum(self):
         weight = [0]*len(self.selected_path)
         stack = copy.copy(self.magic_number_weight)
-        rest = int(math.ceil(sum(self.magic_number_weight)*self.check_sum))  # rest is used to record the random times
+        rest = self.check_sum  # rest is used to record the random times
         
         while rest!=0:
             index = random.randint(0,len(self.selected_path)-1)  # randomly pick a if block in the if_list 

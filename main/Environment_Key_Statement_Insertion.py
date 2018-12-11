@@ -81,7 +81,7 @@ class StatementInserter:
         string = ""
         for i in range(0,length):
             char = chr(random.randint(32,126))
-            while char in ['"',"\\","'"]:   # make sure there are special ascii character
+            while char in ['"',"\\","'","%"]:   # make sure there are special ascii character
                 char = chr(random.randint(32,126))
             string+= char
         return string
