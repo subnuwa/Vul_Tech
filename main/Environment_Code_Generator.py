@@ -182,6 +182,7 @@ class CodeGenerator:
                 body = line
                 if "=" in line:  # if the function call has ' return '
                     #print(line)
+                    #print(line.split("=")[0].strip()[1:])
                     ret = self.chooseVar(line.split("=")[0].strip()[1:],"1")
                     if ret == "void":
                         ret = ""
@@ -193,13 +194,13 @@ class CodeGenerator:
                 varStr = body.split("(")[1][:-1]
                 body = funcName + "("
                 for var in varStr.split(","):  # parse the parameter from the function call string
-                    if var == "#controller4unique":    #  unique path check
+                    if "#controller4unique" in var:    #  unique path check
                         func_index = 0
                         for index in range(0,len(self.nodeSet)):
                             if self.nodeSet[index]["name"] == funcName:
                                 func_index = index
                                 break
-                        if self.nodeIndex in self.vul_path:  # if the function is in the dataflow
+                        if self.nodeIndex in self.vul_path and func_index in self.vul_path:  # if the function is in the dataflow
                             if self.vul_path.index(func_index) == self.vul_path.index(self.nodeIndex)+1: # if the function is next node to this node in dataflow
                                 body += "uni_para"+","  # pass the uni_para to keep the dataflow unique
                             else:    # if the funtion is not the next node to this node
@@ -208,14 +209,14 @@ class CodeGenerator:
                                 while not_unique_number == self.unique_number:
                                     not_unique_number = random.randint(0,1000)
                                 # pass the random number then the path cannot pass the unique number check which is around vulnerability
-                                body += str(not_unique_number)+","
+                                body +="-1 ,"
                         else:  # if the funtion is not in dataflow
                             # randomly pick a number which doesn`t equal to unique number
                             not_unique_number = random.randint(0,1000)
                             while not_unique_number == self.unique_number:
                                 not_unique_number = random.randint(0,1000)
                             # pass the random number then the path cannot pass the unique number check which is around vulnerability
-                            body += str(not_unique_number)+","
+                            body += "-1 ,"
                     else:
                         if var != "#void":  # if the function doesn`t have parameters
                             body += self.chooseVar(var[1:],"1")+","

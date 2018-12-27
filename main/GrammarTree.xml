@@ -4,68 +4,7 @@
 <!-- '$' means the var has been defined in XML -->
 
 <GrammarTree version="0.2">
-<root child="2">
-    <functionCall child="1">
-        <functionLib header="math.h" child="19">
-            <function type="function">
-                #double-$operator_eql-%pow-%(-#double-%,-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%sinh-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%sqrt-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%tan-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%tanh-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%atan-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%acos-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%asin-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%atan2-%(-#double-%,-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%fmod-%(-#double-%,-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%ldexp-%(-#double-%,-#int-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%ceil-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%cos-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%cosh-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%fabs-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%floor-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%exp-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%log-%(-#double-%)
-            </function>
-            <function type="function">
-                #double-$operator_eql-%log10-%(-#double-%)
-            </function>
-        </functionLib>
-    </functionCall>
+<root child="1">
 	<expression child="2">
 		<castExpression child="2">
 			<castExpressionAdd type="expression">

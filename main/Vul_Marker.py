@@ -59,7 +59,7 @@ def changeDefinitions(nodeSet,vul_path):
     # except the main node, add a new parameter into definition
     for vul in vul_path[1:]:
         nodeSet[vul]["full_definition"] += ",controller4unique"
-        vul_path_func_name.append(nodeSet[vul]["full_definition"].split(" ")[1])
+        vul_path_func_name.append(nodeSet[vul]["name"])
     
     # add the unique parameter into the "refDef" of each function node
     for index in range(0,len(nodeSet)):

@@ -21,11 +21,11 @@ class Select_Vul_Location:
     #    check_sum ->  dataflow_parameter_checksum
     def __init__(self,extractor,input_parameter,magic_number,check_sum):
         
-        self.keyWords = ["if","while","for","else","else if"]   # the key words
-        self.ifWords = ["if","else","else if"]             # if-related key words
+        self.keyWords = ["if","while","for","switch","else","else if"]   # the key words
+        self.ifWords = ["if","else if"]             # if-related key words
         
         self.cfvWeight = []           # the nested if block weight of the all funtion nodes
-        self.allPath = []            # all paths that from main node to other nodes
+        self.allPath = [{0: [[0]]}]            # all paths that from main node to other nodes
         self.possible_path = []        # the paths that meet the hyper parameters 
         
         self.extractor = extractor
@@ -40,8 +40,9 @@ class Select_Vul_Location:
         for target in range(1,len(self.cfvWeight)):
             self.allPath.append({target : list(self.extractor.getAllPath(0,target))})
             
-        
+        #print(self.allPath)
         self.FindPossiblePath()                # get the possible paths (which meet the hype parameters) 
+        #print(self.possible_path)
         self.selected_path = self.randomSelectPath()  # select a path from the possible path
         
         self.selected_weight = self.allocateWeight()       # get the nested if weights of vul path
@@ -80,9 +81,8 @@ class Select_Vul_Location:
     def FindPossiblePath(self):
         for i in range(0,len(self.allPath)):
             for path in list(self.allPath[i].items())[0][1]:
-                distance = 0
-                for node in path:
-                    distance += self.cfvWeight[node]
+                distance = sum([self.cfvWeight[x] for x in path])
+                #print(distance)
                 if distance >= self.dataflow_input:     # if the sum of levels of nested if block is larger then the parameter dataflow_input
                     self.possible_path.append(copy.copy(path))  
     

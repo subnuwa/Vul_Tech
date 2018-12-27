@@ -80,9 +80,9 @@ class StatementInserter:
     def randomlyPickASCII(self,length):
         string = ""
         for i in range(0,length):
-            char = chr(random.randint(32,126))
+            char = chr(random.randint(32,125))
             while char in ['"',"\\","'","%"]:   # make sure there are special ascii character
-                char = chr(random.randint(32,126))
+                char = chr(random.randint(32,125))
             string+= char
         return string
     
@@ -103,8 +103,8 @@ class StatementInserter:
             #  " FOR "
             if self.cfv[index+temp].startswith("for"):
                 loop = self.loop_time
-                if '/' in self.cfv[index]:  # if the looper has been marked in FuncCall_Controller_Insertion
-                    loop = int(self.cfv[index].split("/")[1])
+                if '/' in self.cfv[index+temp]:  # if the looper has been marked in FuncCall_Controller_Insertion
+                    loop = int(self.cfv[index+temp].split("/")[1])
                 var_looper = self.chooseLooper()
 
                 # insert the for statement
@@ -113,8 +113,8 @@ class StatementInserter:
             #  " WHILE "
             if self.cfv[index+temp].startswith("while"):
                 loop = self.loop_time
-                if '/' in self.cfv[index]:  # if the looper has been marked in FuncCall_Controller_Insertion
-                    loop = int(self.cfv[index].split("/")[1])
+                if '/' in self.cfv[index+temp]:  # if the looper has been marked in FuncCall_Controller_Insertion
+                    loop = int(self.cfv[index+temp].split("/")[1])
                 var_looper = self.chooseLooper()
 
                 # generate the variable for looper and claim it

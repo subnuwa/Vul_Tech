@@ -10,7 +10,7 @@ import copy
 
 
 keyWords = ["if","while","for","switch","else","else if"]   # the statement key words 
-ifWords = ["if","else","else if"]                   # the if related key words
+ifWords = ["if","else if"]                        # the if related key words
 loopers = ["for","while"]                         # the loop related key words
 control_var_pool = []                            # the pool to store the variables
 control_operators = [">","<"]                       # the operators which can be selected by if conditions     
@@ -188,9 +188,9 @@ def randomlyPickOperator():
 def randomlyPickASCII(length):
     string = ""
     for i in range(0,length):
-        char = chr(random.randint(32,126))
+        char = chr(random.randint(32,125))
         while char in ['"',"\\","'","%"]:   # delete the special ascii which has special meaning in C language
-            char = chr(random.randint(32,126))
+            char = chr(random.randint(32,125))
         string+= char
     return string
 
@@ -222,7 +222,7 @@ def insertController(cfv,controllerLocation,length_min,length_max,magic_number_l
             var = chooseController()      # choose a varibale for controller
             length = random.randint(length_min,length_max)  # randomly generate a length from length_min to length_max 
             # insert the varibale claim statement 
-            definition = "char "+var+"["+str(length)+"];"
+            definition = "char "+var+"["+str(length+1)+"];"
             cfv["cfv"].insert(location+temp,definition)
             temp+=1
             # insert the read statement 

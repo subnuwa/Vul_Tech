@@ -172,6 +172,8 @@ class CFV_Extractor:
                 funcParams = ','.join(sf for sf in norm_param)
                 norm_Def = ' '.join(sd for sd in [funcRetType, funcName, funcParams])
                 node[1]['full_definition'] = norm_Def
+            else:
+                node[1]['full_definition'] = "int main void"
         return graph
     
     
